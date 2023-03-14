@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "students",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --port=3010",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "nuxt": "^3.2.3"
+  },
+  "dependencies": {
+    "luniand-nuxt3-kit": "workspace:^1.0.0"
+  }
+}

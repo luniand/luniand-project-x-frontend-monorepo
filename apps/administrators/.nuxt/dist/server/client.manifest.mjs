@@ -1,0 +1,1 @@
+export { default } from "file:///Users/toantran/Desktop/luniand-project-x-frontend-monorepo/node_modules/.pnpm/@nuxt+vite-builder@3.2.3_vue@3.2.47/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"

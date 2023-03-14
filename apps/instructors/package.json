@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "instructors",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --port=3011",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "nuxt": "^3.2.3"
+  }
+}
