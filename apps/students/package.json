@@ -12,7 +12,6 @@
     "nuxt": "^3.2.3"
   },
   "dependencies": {
-    "firebase": "^9.18.0",
-    "luniand-nuxt3-kit": "workspace:^1.0.0"
+    "firebase": "^9.18.0"
   }
 }
