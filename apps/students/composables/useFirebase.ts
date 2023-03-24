@@ -5,6 +5,10 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithPopup,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  signOut,
 } from "firebase/auth";
 import { FormData } from "~~/types/typeAuth";
 
@@ -36,6 +40,27 @@ export const signInUser = async (formData: FormData) => {
   return credentials;
 };
 
+export const loginWithGithub = async () => {
+  const auth = getAuth();
+  const provider = new GithubAuthProvider();
+  const credential = await signInWithPopup(auth, provider).catch((error) => {});
+  return credential;
+};
+
+export const loginWithGoogle = async () => {
+  const auth = getAuth();
+  auth.languageCode = "it";
+  const provider = new GoogleAuthProvider();
+  provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+  provider.setCustomParameters({
+    login_hint: "http://localhost:3010",
+  });
+
+  const credential = await signInWithPopup(auth, provider).catch((error) => {});
+
+  return credential;
+};
+
 export const initUser = async () => {
   const auth = getAuth();
 
@@ -47,7 +72,12 @@ export const initUser = async () => {
   });
 };
 
-export const signOut = async () => {
+// export const signOut = async () => {
+//   const auth = getAuth();
+//   const result = await auth.signOut();
+// };
+
+export const logOut = async () => {
   const auth = getAuth();
-  const result = await auth.signOut();
+  signOut(auth);
 };

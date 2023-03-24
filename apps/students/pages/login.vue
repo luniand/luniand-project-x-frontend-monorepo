@@ -10,13 +10,20 @@
       <button type="submit">login</button>
       <nuxt-link to="/register">register</nuxt-link>
       <NuxtLink to="/secret">sss</NuxtLink>
+    
     </form>
+    <button type="submit" @click="loginGithub">login with github</button>
+    <button type="submit" @click="loginGoogle">login with google</button>
+    <button type="submit" @click="loginOut">sign out</button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { FormData } from "~~/types/typeAuth";
-import { signInUser } from "../composables/useFirebase";
+import { signInUser, loginWithGithub, loginWithGoogle ,logOut} from "../composables/useFirebase";
+
+
+
 
 const formData = reactive<FormData>({
   email: "",
@@ -30,4 +37,18 @@ const onSubmit = async () => {
     router.push("/");
   }
 };
+
+const loginGithub  =async () => {
+  const result = await loginWithGithub();
+
+};
+
+const loginGoogle  = async ()=>{
+  const result = await loginWithGoogle();
+  
+}
+
+const loginOut = async () =>{
+  await logOut()
+}
 </script>
