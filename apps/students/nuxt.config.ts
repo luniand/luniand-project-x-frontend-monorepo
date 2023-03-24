@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["luniand-nuxt3-kit"],
+  // modules: ["luniand-nuxt3-kit"],
 
   runtimeConfig: {
     // Private config that is only available on the server
