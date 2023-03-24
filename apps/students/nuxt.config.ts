@@ -15,8 +15,6 @@ export default defineNuxtConfig({
     },
   },
 
-  extends: ["nuxt-seo-kit"],
-
   // modules: ["luniand-nuxt3-kit"],
 
   runtimeConfig: {
@@ -25,6 +23,13 @@ export default defineNuxtConfig({
     // Config within public will be also exposed to the client
     public: {
       FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+      FIREBASE_AUTH_COOKIE: {
+        name: "luniand",
+        lifetime: 60 * 60 * 8,
+        domain: "",
+        path: "/",
+        sameSite: "lax",
+      },
     },
   },
 });
