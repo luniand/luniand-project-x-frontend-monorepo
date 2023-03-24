@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { signOut } from "../composables/useFirebase";
+// import { signOut } from "../composables/useFirebase";
 
 
 definePageMeta({
@@ -18,7 +18,7 @@ definePageMeta({
 
 
 const onSubmit = async () => {
-  const result = await signOut();
+  // const result = await signOut();
   const router = useRouter();
   router.push("/login");
 };

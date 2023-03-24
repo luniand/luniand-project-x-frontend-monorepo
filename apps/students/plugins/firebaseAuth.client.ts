@@ -13,7 +13,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     appId: "1:667086197122:web:cc94ecc91bd991810b7f9b",
   };
 
-  const app = initializeApp(firebaseConfig);
+  initializeApp(firebaseConfig);
   initUser();
 
   const auth = getAuth();
