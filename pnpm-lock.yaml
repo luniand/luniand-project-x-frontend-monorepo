@@ -14,11 +14,9 @@ importers:
   apps/students:
     specifiers:
       firebase: ^9.18.0
-      luniand-nuxt3-kit: workspace:^1.0.0
       nuxt: ^3.2.3
     dependencies:
       firebase: 9.18.0
-      luniand-nuxt3-kit: link:../../packages/luniand-nuxt3-kit
     devDependencies:
       nuxt: 3.2.3
 
