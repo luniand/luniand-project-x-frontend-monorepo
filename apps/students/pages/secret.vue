@@ -3,27 +3,29 @@
     <form @submit.prevent="onSubmit">
       <button type="submit">sign out</button>
     </form>
-    <NuxtLink to="/secret">sss</NuxtLink>
+
     <client-only>
       <pre>
-              {{ firebaseState }}
-             </pre>
+             {{ firebaseState }}
+    </pre
+      >
     </client-only>
   </div>
 </template>
-
 
 <script setup lang="ts">
 import { signOut } from "../composables/useFirebase";
 import { useStateFirebase } from "../composables/useStateFireBase";
 
+definePageMeta({
+  middleware: ["auth"],
+});
+
 const firebaseState = useStateFirebase();
 
 const onSubmit = async () => {
   const result = await signOut();
-  const router = useRouter()
-  router.push('/login')
+  const router = useRouter();
+  router.push("/login");
 };
-
-
 </script>
