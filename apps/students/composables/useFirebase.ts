@@ -7,7 +7,6 @@ import {
   GoogleAuthProvider,
   signOut,
 } from "firebase/auth";
-import { FormData } from "~~/types/typeAuth";
 
 export const loginWithGithub = async () => {
   const auth = getAuth();

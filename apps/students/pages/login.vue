@@ -18,12 +18,11 @@
 </template>
 
 <script setup lang="ts">
-import { FormData } from "~~/types/typeAuth";
 // import { loginWithGithub, loginWithGoogle ,logOut} from "../composables/useFirebase";
 
 const { signInUserByEmail } = useAuth()
 
-const formData = reactive<FormData>({
+const formData = reactive<FormDataUserSignIn>({
   email: "",
   password: "",
 });
