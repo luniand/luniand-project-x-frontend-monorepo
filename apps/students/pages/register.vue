@@ -10,21 +10,18 @@
   
   
 <script setup lang="ts">
-import { FormData } from "~~/types/typeAuth";
-import { createUser } from "../composables/useFirebase";
+const { signUpUserByEmail, currentUser } = useAuth()
 
-
-
-const formData = reactive<FormData>({
+const formData = reactive({
   email: "",
   password: "",
 });
 
 const onSubmit = async () => {
-  const result = await createUser(formData);
-  if (result) {
+  await signUpUserByEmail(formData);
+  if (currentUser.value) {
     const router = useRouter()
-    router.push('/login')
+    router.push('/secret')
   }
 };
 

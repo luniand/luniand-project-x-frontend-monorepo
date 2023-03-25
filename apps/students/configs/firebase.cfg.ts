@@ -1,17 +1,11 @@
-import { applicationDefault, initializeApp } from "firebase-admin/app";
-
-const FIREBASE_APP = initializeApp({
-  credential: applicationDefault(),
-  databaseURL: "",
-});
-
 const FIREBASE_CONFIG = {
-  apiKey: "AIzaSyA2mCJyvKdapczh9IjgRtM0JhTgnom1ThY",
-  authDomain: "nuxt3-firebase-f6787.firebaseapp.com",
-  projectId: "nuxt3-firebase-f6787",
-  storageBucket: "nuxt3-firebase-f6787.appspot.com",
-  messagingSenderId: "667086197122",
-  appId: "1:667086197122:web:cc94ecc91bd991810b7f9b",
+  apiKey: "AIzaSyBLhudmaF4hXxK1s5pquNHf3czcowgVTO0",
+  authDomain: "project-x-mvp.firebaseapp.com",
+  projectId: "project-x-mvp",
+  storageBucket: "project-x-mvp.appspot.com",
+  messagingSenderId: "140407460537",
+  appId: "1:140407460537:web:c636eaf521696cd0614168",
+  measurementId: "G-QRC595CG7G",
 };
 
-export { FIREBASE_APP, FIREBASE_CONFIG };
+export { FIREBASE_CONFIG };

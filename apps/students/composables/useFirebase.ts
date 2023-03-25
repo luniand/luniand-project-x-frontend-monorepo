@@ -2,27 +2,12 @@
 
 import {
   getAuth,
-  createUserWithEmailAndPassword,
   signInWithPopup,
   GithubAuthProvider,
   GoogleAuthProvider,
   signOut,
 } from "firebase/auth";
 import { FormData } from "~~/types/typeAuth";
-
-export const createUser = async (formData: FormData) => {
-  const { email, password } = formData;
-  const auth = getAuth();
-  const credentials = await createUserWithEmailAndPassword(
-    auth,
-    email,
-    password
-  ).catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
-  return credentials;
-};
 
 export const loginWithGithub = async () => {
   const auth = getAuth();

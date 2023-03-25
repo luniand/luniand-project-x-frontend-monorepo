@@ -2,9 +2,6 @@ import { getApp } from "firebase-admin/app";
 import { getAuth } from "firebase-admin/auth";
 import { getCookie } from "h3";
 
-// This is just a sample middleware that protects
-// a single route.
-
 export default defineEventHandler(async (event) => {
   const { req, res } = event;
   const cookieOptions = useRuntimeConfig().public.firebaseAuthCookie;
