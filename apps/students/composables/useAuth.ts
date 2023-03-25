@@ -4,23 +4,18 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-export type FormData = {
-  email: string;
-  password: string;
-};
-
 const currentUser = ref();
 
-async function signInUserByEmail(formData: any) {
-  const { email, password } = formData;
+async function signInUserByEmail(dto: FormDataUserSignIn) {
+  const { email, password } = dto;
   const auth = getAuth();
   const credentials = await signInWithEmailAndPassword(auth, email, password);
   return credentials;
 }
 
-async function signUpUserByEmail(formData: FormData) {
+async function signUpUserByEmail(dto: FormDataUserSignIn) {
   try {
-    const { email, password } = formData;
+    const { email, password } = dto;
     const auth = getAuth();
     const credentials = await createUserWithEmailAndPassword(
       auth,
