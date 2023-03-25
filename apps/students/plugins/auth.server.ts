@@ -3,9 +3,6 @@ import { applicationDefault, initializeApp, cert } from "firebase-admin/app";
 import { TF_USER_FIREBASE } from "transform";
 
 const FIREBASE_APP = initializeApp({
-  // credential:
-  //   cert(require("../server/credentials/firebase-admin-sdk.json")) ||
-  //   applicationDefault(),
   credential:
     cert({
       projectId: "project-x-mvp",
