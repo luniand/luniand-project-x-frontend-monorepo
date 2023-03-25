@@ -1,11 +1,15 @@
-const FIREBASE_CONFIG = {
-  apiKey: "AIzaSyBLhudmaF4hXxK1s5pquNHf3czcowgVTO0",
-  authDomain: "project-x-mvp.firebaseapp.com",
-  projectId: "project-x-mvp",
-  storageBucket: "project-x-mvp.appspot.com",
-  messagingSenderId: "140407460537",
-  appId: "1:140407460537:web:c636eaf521696cd0614168",
-  measurementId: "G-QRC595CG7G",
+const FIREBASE_CONFIG = () => {
+  const config = useRuntimeConfig();
+
+  return {
+    apiKey: config.public.FIREBASE_API_KEY,
+    authDomain: config.public.FIREBASE_AUTH_DOMAIN,
+    projectId: config.public.FIREBASE_PROJECT_ID,
+    storageBucket: config.public.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: config.public.FIREBASE_MESSAGING_SENDER_ID,
+    appId: config.public.FIREBASE_APP_ID,
+    measurementId: config.public.FIREBASE_MEASUREMENT_ID,
+  };
 };
 
 export { FIREBASE_CONFIG };
