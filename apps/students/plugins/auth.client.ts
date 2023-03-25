@@ -16,11 +16,13 @@ export default defineNuxtPlugin((nuxtApp) => {
   const { currentUser } = useAuth();
 
   // init firebase app
-  initializeApp(FIREBASE_CONFIG);
+  const app = initializeApp(FIREBASE_CONFIG());
   const auth = getAuth();
 
   nuxtApp.hooks.hook("app:mounted", () => {
     auth.onIdTokenChanged(async (user) => {
+      console.log("userrrrrrr: ", user);
+
       if (user) {
         const token = await user.getIdToken();
         setServerSession(token);
@@ -35,6 +37,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   return {
     provide: {
       auth,
+      firebase: app,
     },
   };
 });

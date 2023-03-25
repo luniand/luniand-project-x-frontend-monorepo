@@ -2,6 +2,8 @@ export default defineNuxtPlugin(() => {
   const { currentUser } = useAuth();
 
   addRouteMiddleware("auth", (to) => {
-    if (!currentUser.value) return navigateTo("/login");
+    console.log("currentUser: ", currentUser.value);
+
+    // if (!currentUser.value) return navigateTo("/login");
   });
 });
