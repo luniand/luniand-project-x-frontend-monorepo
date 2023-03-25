@@ -1,17 +1,17 @@
 import { getAuth } from "firebase-admin/auth";
 import { applicationDefault, initializeApp, cert } from "firebase-admin/app";
-import admin from "firebase-admin";
 import { TF_USER_FIREBASE } from "transform";
+import { apps } from "firebase-admin";
+
+let FIREBASE_APP: ReturnType<typeof initializeApp> | null = null;
 
 export default defineNuxtPlugin(async () => {
-  let FIREBASE_APP: ReturnType<typeof initializeApp> | null = null;
-
   const token = useFirebaseToken();
   const { currentUser } = useAuth();
 
   const config = useRuntimeConfig();
 
-  if (!FIREBASE_APP && !admin.apps.length) {
+  if (!FIREBASE_APP && !apps.length) {
     FIREBASE_APP = initializeApp({
       credential:
         cert({
