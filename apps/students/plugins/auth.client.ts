@@ -21,8 +21,6 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   nuxtApp.hooks.hook("app:mounted", () => {
     auth.onIdTokenChanged(async (user) => {
-      console.log("userrrrrrr: ", user);
-
       if (user) {
         const token = await user.getIdToken();
         setServerSession(token);

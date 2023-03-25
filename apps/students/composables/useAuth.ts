@@ -4,8 +4,6 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-const currentUser = ref();
-
 async function signInUserByEmail(dto: FormDataUserSignIn) {
   const { email, password } = dto;
   const auth = getAuth();
@@ -30,5 +28,7 @@ async function signUpUserByEmail(dto: FormDataUserSignIn) {
 }
 
 export function useAuth() {
+  const currentUser = useState<CurrentUser | null>("currentUser", () => null);
+
   return { currentUser, signInUserByEmail, signUpUserByEmail };
 }
