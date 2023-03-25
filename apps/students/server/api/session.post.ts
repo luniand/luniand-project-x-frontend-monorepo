@@ -2,8 +2,7 @@ import { setCookie, readBody } from "h3";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const cookieOptions = useRuntimeConfig().public.firebaseAuthCookie;
-  console.log(cookieOptions);
+  const cookieOptions = useRuntimeConfig().public.FIREBASE_AUTH_COOKIE;
   if (body.token) {
     setCookie(event, `${cookieOptions.name}-token`, body.token, {
       domain: cookieOptions.domain,

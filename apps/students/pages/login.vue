@@ -29,13 +29,11 @@ const formData = reactive<FormData>({
 });
 
 const onSubmit = async () => {
-  // const result = await signInUserByEmail(formData);
-  // console.log("🚀 ~ file: login.vue:34 ~ onSubmit ~ result:", result)
-  
-  // if (result) {
-  //   const router = useRouter();
-  //   router.push("/secret");
-  // }
+  const result = await signInUserByEmail(formData);
+  if (result) {
+    const router = useRouter();
+    router.push("/secret");
+  }
 };
 
 // const loginGithub  =async () => {

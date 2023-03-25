@@ -10,7 +10,6 @@ export const Button = defineComponent({
       color: "white",
       "border-radius": "5px",
     };
-    console.log("run here...");
 
     return () =>
       h(
