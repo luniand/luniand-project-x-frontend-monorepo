@@ -1,42 +1,36 @@
-# Nuxt 3 Minimal Starter
+# Project X MVP Guide
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
+## Run project
+> We use `pnpm` instead of `npm` or `yarn`. Please just use `pnpm` for this project
 
 ```bash
-# yarn
-yarn install
+# Install common packages
+pnpm i
 
-# npm
-npm install
+# Install students project packages
+pnpm i --filter=students
 
-# pnpm
-pnpm install
+# Run students project
+pnpm run --filter=students dev
 ```
 
-## Development Server
+## Install https for development environment
 
-Start the development server on http://localhost:3000
+To install `mkcert`, follow this link: https://github.com/FiloSottile/mkcert. After install `mkcert`
 
 ```bash
-npm run dev
+# Go to /apps/students
+cd apps/students
+
+# Create cert file
+mkcert -key-file key.pem -cert-file cert.pem localhost
+
+# Verify cert file
+mkcert -install
+
+# Run project. Note: go to root project before do this like cd ../../
+pnpm run --filter=students dev
 ```
 
-## Production
 
-Build the application for production:
 
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
