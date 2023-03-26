@@ -9,18 +9,18 @@
       />
       <button type="submit">login</button>
     </form>
-    <!-- <button type="submit" @click="loginGithub">login with github</button>
+    <button type="submit" @click="loginGithub">login with github</button>
     <button type="submit" @click.prevent="loginGoogle">login with google</button>
-    <button type="submit" @click="loginOut">sign out</button>
-    <br> -->
+  
+    <br>
     <nuxt-link to="/register">register</nuxt-link>
   </div>
 </template>
 
 <script setup lang="ts">
-// import { loginWithGithub, loginWithGoogle ,logOut} from "../composables/useFirebase";
 
-const { signInUserByEmail } = useAuth()
+
+const { signInUserByEmail,loginByGithub ,loginByGoogle,currentUser, logOut} = useAuth()
 
 const formData = reactive<FormDataUserSignIn>({
   email: "",
@@ -28,24 +28,28 @@ const formData = reactive<FormDataUserSignIn>({
 });
 
 const onSubmit = async () => {
-  const result = await signInUserByEmail(formData);
-  if (result) {
+  await signInUserByEmail(formData);
+  if(currentUser.value){
     const router = useRouter();
     router.push("/secret");
   }
 };
 
-// const loginGithub  =async () => {
-//   const result = await loginWithGithub();
+const loginGithub  =async () => {
+  await loginByGithub()
+  if(currentUser.value){
+    const router = useRouter();
+    router.push("/secret");
+  }
+};
 
-// };
+const loginGoogle  = async ()=>{
+  await loginByGoogle()
+  if(currentUser.value){
+    const router = useRouter();
+    router.push("/secret");
+  }
+}
 
-// const loginGoogle  = async ()=>{
-//   const result = await loginWithGoogle();
-  
-// }
 
-// const loginOut = async () =>{
-//   await logOut()
-// }
 </script>
