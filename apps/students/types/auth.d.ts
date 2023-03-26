@@ -6,4 +6,5 @@ type FormDataUserSignIn = {
 type CurrentUser = {
   uid: string;
   email?: string;
+  username?: string;
 };
