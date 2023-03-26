@@ -21,7 +21,7 @@ const onSubmit = async () => {
   await signUpUserByEmail(formData);
   if (currentUser.value) {
     const router = useRouter()
-    router.push('/secret')
+    router.push("/secret");
   }
 };
 
