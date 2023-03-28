@@ -12,6 +12,7 @@ async function signInUserByEmail(dto: FormDataUserSignIn) {
   const { email, password } = dto;
   const auth = getAuth();
   const credentials = await signInWithEmailAndPassword(auth, email, password);
+
   return credentials;
 }
 
@@ -24,6 +25,7 @@ async function signUpUserByEmail(dto: FormDataUserSignIn) {
       email,
       password
     );
+
     return credentials;
   } catch (error) {
     // show alert notice warning for user.
@@ -71,7 +73,10 @@ async function logOut() {
 }
 
 export function useAuth() {
-  const currentUser = useState<CurrentUser | null>("currentUser", () => null);
+  const currentUser = useState<any>(
+    "currentUser",
+    async () => await getCurrentUser()
+  );
 
   return {
     currentUser,
