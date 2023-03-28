@@ -1,1 +1,1 @@
-export * from "./firebase.cfg";
+export * from "./foo.cfg";
