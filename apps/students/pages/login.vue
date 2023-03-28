@@ -29,6 +29,7 @@ const formData = reactive<FormDataUserSignIn>({
 
 const onSubmit = async () => {
   await signInUserByEmail(formData);
+
   if(currentUser.value){
     const router = useRouter();
     router.push("/secret");
