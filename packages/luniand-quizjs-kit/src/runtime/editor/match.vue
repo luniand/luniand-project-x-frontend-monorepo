@@ -1,5 +1,5 @@
 <template>
-  <h1>
-    Match
-  </h1>
+    <h1>
+        Match
+    </h1>
 </template>
