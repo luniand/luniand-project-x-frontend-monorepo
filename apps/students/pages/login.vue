@@ -37,16 +37,17 @@ const onSubmit = async () => {
 };
 
 const loginGithub  =async () => {
-  await loginByGithub()
-  if(currentUser.value){
+  const result =  await loginByGithub()
+  if(currentUser.value  && result  ){
     const router = useRouter();
     router.push("/secret");
   }
 };
 
 const loginGoogle  = async ()=>{
-  await loginByGoogle()
-  if(currentUser.value){
+ const result = await  loginByGoogle()
+
+  if(currentUser.value && result  ){
     const router = useRouter();
     router.push("/secret");
   }
