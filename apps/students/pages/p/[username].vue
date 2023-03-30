@@ -1,13 +1,14 @@
 <template>
     <h1>profile</h1>
     <pre>
-{{ currentUser }}
+{{ user }}
     </pre>
 </template>
 
 <script setup lang="ts">
-const { currentUser} = useAuth()
+// const { currentUser} = useAuth()
+const user = await getCurrentUser();
 definePageMeta({
-  middleware: ["profile"],
+  middleware: ["auth","profile"],
 });
 </script>

@@ -15,9 +15,11 @@ const { currentUser, logOut} = useAuth()
 function onSubmit() {
   alert("hello")
 }
+
 const signOut = async () =>{
   await logOut()
-  if(!currentUser.value){
+
+  if(Object.getOwnPropertyNames(currentUser.value).length === 0 || !currentUser.value){
     const router = useRouter();
     router.push("/login");
   }

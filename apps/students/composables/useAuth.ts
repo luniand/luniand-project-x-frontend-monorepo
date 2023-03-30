@@ -46,30 +46,42 @@ async function loginByGithub() {
     });
 
     return credential;
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
+    if (error.code === "auth/popup-closed-by-user") {
+      return false;
+    }
   }
 }
 
 async function loginByGoogle() {
-  const auth = getAuth();
-  auth.languageCode = "it";
-  const provider = new GoogleAuthProvider();
-  provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
-  provider.setCustomParameters({
-    login_hint: "http://localhost:3010",
-  });
+  try {
+    const auth = getAuth();
+    auth.languageCode = "it";
+    const provider = new GoogleAuthProvider();
+    provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+    provider.setCustomParameters({
+      login_hint: "http://localhost:3010",
+    });
 
-  const credential = await signInWithPopup(auth, provider).catch((error) => {
-    console.error(error.code);
-  });
+    const credential = await signInWithPopup(auth, provider);
 
-  return credential;
+    return credential;
+  } catch (e: any) {
+    console.error(e);
+    if (e.code === "auth/popup-closed-by-user") {
+      return false;
+    }
+  }
 }
 
 async function logOut() {
   const auth = getAuth();
   await signOut(auth);
+}
+
+async function syncCurrentUser() {
+  return await getCurrentUser();
 }
 
 export function useAuth() {
@@ -85,5 +97,6 @@ export function useAuth() {
     loginByGithub,
     loginByGoogle,
     logOut,
+    syncCurrentUser,
   };
 }
