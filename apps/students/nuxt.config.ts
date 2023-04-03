@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { join } from "path";
 export default defineNuxtConfig({
   app: {
     head: {
@@ -31,7 +32,7 @@ export default defineNuxtConfig({
       appId: process.env.FIREBASE_APP_ID,
     },
     admin: {
-      serviceAccount: "./firebase.json",
+      serviceAccount: join(__dirname, "firebase.json"),
     },
   },
 });
