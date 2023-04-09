@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-.nuxt
-node_modules
-=======
 # Dependencies
 node_modules
 
@@ -58,4 +54,3 @@ coverage
 Network Trash Folder
 Temporary Items
 .apdisk
->>>>>>> 080d833 (fix(quizjs): add app structure from nuxt3 kit)
